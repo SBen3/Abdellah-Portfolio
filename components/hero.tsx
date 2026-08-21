@@ -1,5 +1,9 @@
 import { Button } from "@/components/ui/button";
-import { ConfettiCircle, ConfettiTriangle, Squiggle } from "@/components/decorations";
+import {
+  ConfettiCircle,
+  ConfettiTriangle,
+  Squiggle,
+} from "@/components/decorations";
 
 const cursors = [
   { name: "Yasmine", color: "var(--color-secondary)", top: "18%", left: "62%" },
@@ -9,7 +13,10 @@ const cursors = [
 
 export function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden px-6 pb-20 pt-16 sm:pt-24">
+    <section
+      id="top"
+      className="relative overflow-hidden px-6 pb-20 pt-10 sm:pt-24 max-h-175"
+    >
       {/* Massive yellow circle behind the text */}
       <div
         aria-hidden
@@ -23,7 +30,7 @@ export function Hero() {
 
       <div className="relative mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 lg:grid-cols-2">
         {/* Left: copy */}
-        <div className="relative">
+        <div className="relative -top-5">
           <span className="inline-flex items-center gap-2 rounded-full border-2 border-foreground bg-card px-4 py-1.5 font-heading text-xs font-bold uppercase tracking-wide shadow-pop-sm">
             <span className="h-2 w-2 animate-pulse rounded-full bg-quaternary" />
             Frontend Developer · Open for freelance
@@ -37,11 +44,17 @@ export function Hero() {
             </span>
           </h1>
 
-          <p className="mt-6 max-w-lg text-lg leading-relaxed text-muted-foreground">
-            I&apos;m <strong className="font-bold text-foreground">Abdellah Smahi</strong>, a
-            frontend developer specializing in React, Next.js, and TypeScript. I build fast,
-            responsive, well-structured interfaces — and I&apos;m comfortable taking a feature
-            from architecture through to shipped, polished UI.
+          <p className="mt-6 max-w-lg text-md leading-relaxed text-muted-foreground">
+            I&apos;m{" "}
+            <strong className="font-bold text-foreground">
+              Abdellah Smahi
+            </strong>
+            , Frontend Developer specializing in React, Next.js, and TypeScript,
+            with experience building responsive, production-ready web
+            applications and complex interactive interfaces. Skilled in
+            developing real-time collaborative features, reusable UI components,
+            and scalable frontend architectures, with a strong focus on
+            performance, usability, and clean code.
           </p>
 
           <div className="mt-9 flex flex-wrap items-center gap-4">
@@ -55,27 +68,33 @@ export function Hero() {
 
           <div className="mt-10 flex items-center gap-6 text-sm text-muted-foreground">
             <div>
-              <span className="font-heading text-2xl font-extrabold text-foreground">6+</span>
+              <span className="font-heading text-2xl font-extrabold text-foreground">
+                6+
+              </span>
               <p>tools in daily stack</p>
             </div>
             <div className="h-8 w-px bg-border" />
             <div>
-              <span className="font-heading text-2xl font-extrabold text-foreground">1</span>
+              <span className="font-heading text-2xl font-extrabold text-foreground">
+                1
+              </span>
               <p>shipped multiplayer canvas</p>
             </div>
             <div className="h-8 w-px bg-border" />
             <div>
-              <span className="font-heading text-2xl font-extrabold text-foreground">Saïda</span>
+              <span className="font-heading text-2xl font-extrabold text-foreground">
+                Saïda
+              </span>
               <p>Algeria, working worldwide</p>
             </div>
           </div>
         </div>
 
         {/* Right: illustrated live-canvas mock, dotted pattern behind, blob mask */}
-        <div className="relative mx-auto w-full max-w-md lg:max-w-none">
+        <div className="relative mx-auto w-full max-w-md lg:max-w-none -top-32">
           <div
             aria-hidden
-            className="bg-dot-grid absolute -right-6 -top-6 h-full w-full rounded-blob"
+            className="bg-dot-grid absolute -right-6 top-0 h-full w-full rounded-blob"
           />
           <div className="relative rounded-blob border-2 border-foreground bg-card p-4 shadow-[10px_10px_0px_0px_var(--shadow-color)] animate-float">
             {/* fake browser chrome */}
@@ -90,9 +109,31 @@ export function Hero() {
 
             {/* canvas surface */}
             <div className="relative h-72 overflow-hidden rounded-lg border-2 border-foreground bg-muted sm:h-80">
-              <svg className="absolute inset-0 h-full w-full" viewBox="0 0 400 300" fill="none">
-                <rect x="28" y="28" width="120" height="80" rx="10" fill="var(--color-secondary)" fillOpacity="0.25" stroke="var(--color-secondary)" strokeWidth="2.5" />
-                <circle cx="290" cy="90" r="46" fill="var(--color-accent)" fillOpacity="0.2" stroke="var(--color-accent)" strokeWidth="2.5" />
+              <svg
+                className="absolute inset-0 h-full w-full"
+                viewBox="0 0 400 300"
+                fill="none"
+              >
+                <rect
+                  x="28"
+                  y="28"
+                  width="120"
+                  height="80"
+                  rx="10"
+                  fill="var(--color-secondary)"
+                  fillOpacity="0.25"
+                  stroke="var(--color-secondary)"
+                  strokeWidth="2.5"
+                />
+                <circle
+                  cx="290"
+                  cy="90"
+                  r="46"
+                  fill="var(--color-accent)"
+                  fillOpacity="0.2"
+                  stroke="var(--color-accent)"
+                  strokeWidth="2.5"
+                />
                 <path
                   d="M50 210C90 170 130 240 170 200C210 160 250 220 290 190"
                   stroke="var(--color-quaternary)"
@@ -100,7 +141,17 @@ export function Hero() {
                   strokeLinecap="round"
                   fill="none"
                 />
-                <rect x="200" y="205" width="90" height="60" rx="8" fill="var(--color-tertiary)" fillOpacity="0.3" stroke="var(--color-tertiary)" strokeWidth="2.5" />
+                <rect
+                  x="200"
+                  y="205"
+                  width="90"
+                  height="60"
+                  rx="8"
+                  fill="var(--color-tertiary)"
+                  fillOpacity="0.3"
+                  stroke="var(--color-tertiary)"
+                  strokeWidth="2.5"
+                />
               </svg>
 
               {cursors.map((c) => (
@@ -110,7 +161,12 @@ export function Hero() {
                   style={{ top: c.top, left: c.left }}
                 >
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <path d="M1 1L15 7L8 8.5L6 15L1 1Z" fill={c.color} stroke="var(--color-foreground)" strokeWidth="1" />
+                    <path
+                      d="M1 1L15 7L8 8.5L6 15L1 1Z"
+                      fill={c.color}
+                      stroke="var(--color-foreground)"
+                      strokeWidth="1"
+                    />
                   </svg>
                   <span
                     className="rounded-full border border-foreground px-2 py-0.5 font-heading text-[10px] font-bold text-white"
