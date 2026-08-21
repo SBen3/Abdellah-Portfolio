@@ -1,0 +1,150 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: #fffdf5;
+  --foreground: #1e293b;
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+  --accent: #8b5cf6;
+  --accent-foreground: #ffffff;
+  --secondary: #f472b6;
+  --tertiary: #fbbf24;
+  --quaternary: #34d399;
+  --border: #e2e8f0;
+  --input: #ffffff;
+  --card: #ffffff;
+  --ring: #8b5cf6;
+  --shadow-color: #1e293b;
+  --shadow-color-pink: #f472b6;
+  --dot-color: #1e293b1a;
+  --blue : #3b82f6;
+}
+
+.dark {
+  --background: #120e1c;
+  --foreground: #f4f1ff;
+  --muted: #1c1630;
+  --muted-foreground: #a79dc4;
+  --accent: #a78bfa;
+  --accent-foreground: #14101f;
+  --secondary: #f472b6;
+  --tertiary: #fcd34d;
+  --quaternary: #6ee7b7;
+  --border: #382c54;
+  --input: #1c1630;
+  --card: #1a1428;
+  --ring: #a78bfa;
+  --shadow-color: #000000;
+  --shadow-color-pink: #000000;
+  --dot-color: #f4f1ff14;
+  --blue : #3b82f6;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-secondary: var(--secondary);
+  --color-tertiary: var(--tertiary);
+  --color-quaternary: var(--quaternary);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-card: var(--card);
+  --color-ring: var(--ring);
+
+  --font-heading: "Outfit", system-ui, sans-serif;
+  --font-body: "Plus Jakarta Sans", system-ui, sans-serif;
+
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+
+  --animate-wiggle: wiggle 0.5s ease-in-out;
+  --animate-pop-in: pop-in 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  --animate-marquee: marquee 28s linear infinite;
+  --animate-float: float 6s ease-in-out infinite;
+
+  @keyframes wiggle {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(3deg); }
+    75% { transform: rotate(-3deg); }
+    100% { transform: rotate(0deg); }
+  }
+  @keyframes pop-in {
+    0% { transform: scale(0.7); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+}
+
+* {
+  border-color: var(--color-border);
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-body);
+}
+
+h1, h2, h3, h4, .font-heading {
+  font-family: var(--font-heading);
+}
+
+/* Hard "pop" shadow system, no blur, chunky offsets */
+.shadow-pop {
+  box-shadow: 4px 4px 0px 0px var(--shadow-color);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.shadow-pop-hover:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px 0px var(--shadow-color);
+}
+.shadow-pop-active:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px 0px var(--shadow-color);
+}
+.shadow-pop-pink {
+  box-shadow: 8px 8px 0px 0px var(--shadow-color-pink);
+}
+.shadow-pop-sm {
+  box-shadow: 3px 3px 0px 0px var(--shadow-color);
+}
+
+/* Speech-bubble "blob" radius */
+.rounded-blob {
+  border-radius: 24px 24px 24px 4px;
+}
+
+/* Dot grid texture */
+.bg-dot-grid {
+  background-image: radial-gradient(var(--dot-color) 1.5px, transparent 1.5px);
+  background-size: 18px 18px;
+}
+
+.animate-marquee {
+  animation: var(--animate-marquee);
+}
+.animate-float {
+  animation: var(--animate-float);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
